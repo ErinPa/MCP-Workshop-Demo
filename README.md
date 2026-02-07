@@ -146,12 +146,13 @@ The MCP server acts as a bridge between AI agents and the todo application, allo
 
 ### Using with MCP Clients
 
-#### Claude Desktop
+#### Cursor
 
-Add this to your Claude Desktop configuration:
+Add this to your cursor mcp configuration. if you have the the repository open
+you can create a local .cursor folder and inside create mcp.json. 
 
-**macOS:** `~/Library/Application Support/Claude/claude_desktop_config.json`  
-**Windows:** `%APPDATA%\Claude\claude_desktop_config.json`
+**macOS:** 
+
 
 ```json
 {
@@ -159,6 +160,31 @@ Add this to your Claude Desktop configuration:
     "todo-manager": {
       "command": "uv",
       "args": ["run", "--directory", "your/path/to/the/repository", "python", "mcp_server/server.py"]
+    }
+  }
+}
+```
+
+**Windows:** 
+
+note you can use wsl to run the application normally. Here we create a seperate
+uv env for powershell so it works well within cursor as well;
+
+create the special uv environment in powershell with
+```
+$env:UV_PROJECT_ENVIRONMENT = ".venv-windows"
+uv sync
+```
+
+```json
+{
+  "mcpServers": {
+    "todo-manager": {
+      "command": "uv",
+      "args": ["run", "--directory", "c:\\Users\\your\\path here\\MCP-Workshop-Demo", "python", "mcp_server/server.py"],
+      "env": {
+        "UV_PROJECT_ENVIRONMENT": ".venv-windows"
+      }
     }
   }
 }
