@@ -1,2 +1,42 @@
-.env
+# Python virtual environments
+venv/
+.env/
+
+# Compiled Python files
 *.pyc
+*.pyo
+__pycache__/
+
+# Environment variables and secrets
+.env
+.env.*
+
+# IDE/editor files
+.vscode/
+.idea/
+
+# Logs and debug files
+*.log
+
+# Test coverage reports
+.coverage
+htmlcov/
+
+# Build and distribution files
+build/
+dist/
+*.egg-info/
+*.egg
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints
+
+# macOS system files
+.DS_Store
+
+# Temporary files
+*.tmp
+*.swp
+
+# Database files
+*.db
