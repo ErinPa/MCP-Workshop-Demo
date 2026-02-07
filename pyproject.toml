@@ -1,0 +1,16 @@
+[project]
+name = "demo"
+version = "0.1.0"
+description = "Todo application with FastAPI and MCP server demo"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "fastapi>=0.115.0",
+    "uvicorn[standard]>=0.30.0",
+    "sqlalchemy>=2.0.0",
+    "pydantic>=2.0.0",
+    "httpx>=0.27.0",
+    "mcp>=1.0.0",
+    "anthropic>=0.40.0",
+    "python-dotenv>=1.0.0",
+]

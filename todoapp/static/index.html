@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo App</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>📝 Todo Application</h1>
+            <p class="subtitle">Manage your tasks with priorities</p>
+        </header>
+
+        <!-- Add Todo Form -->
+        <div class="add-todo-section">
+            <h2>Add New Todo</h2>
+            <form id="addTodoForm">
+                <div class="form-group">
+                    <label for="title">Title *</label>
+                    <input type="text" id="title" name="title" required maxlength="200" placeholder="Enter todo title">
+                </div>
+                <div class="form-group">
+                    <label for="description">Description</label>
+                    <textarea id="description" name="description" maxlength="1000" placeholder="Optional description" rows="3"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="priority">Priority</label>
+                    <select id="priority" name="priority">
+                        <option value="low">Low</option>
+                        <option value="medium" selected>Medium</option>
+                        <option value="high">High</option>
+                        <option value="urgent">Urgent</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-primary">Add Todo</button>
+            </form>
+        </div>
+
+        <!-- Filters -->
+        <div class="filters-section">
+            <h2>Filters</h2>
+            <div class="filters">
+                <div class="filter-group">
+                    <label for="filterPriority">Priority:</label>
+                    <select id="filterPriority">
+                        <option value="">All</option>
+                        <option value="low">Low</option>
+                        <option value="medium">Medium</option>
+                        <option value="high">High</option>
+                        <option value="urgent">Urgent</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label for="filterCompleted">Status:</label>
+                    <select id="filterCompleted">
+                        <option value="">All</option>
+                        <option value="false">Active</option>
+                        <option value="true">Completed</option>
+                    </select>
+                </div>
+                <button id="applyFilters" class="btn btn-secondary">Apply Filters</button>
+                <button id="resetFilters" class="btn btn-secondary">Reset</button>
+            </div>
+        </div>
+
+        <!-- Todo List -->
+        <div class="todos-section">
+            <div class="todos-header">
+                <h2>Your Todos</h2>
+                <div id="todoCount" class="todo-count">Loading...</div>
+            </div>
+            <div id="todosList" class="todos-list">
+                <div class="loading">Loading todos...</div>
+            </div>
+        </div>
+
+        <!-- Edit Modal -->
+        <div id="editModal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h2>Edit Todo</h2>
+                <form id="editTodoForm">
+                    <input type="hidden" id="editTodoId">
+                    <div class="form-group">
+                        <label for="editTitle">Title *</label>
+                        <input type="text" id="editTitle" name="title" required maxlength="200">
+                    </div>
+                    <div class="form-group">
+                        <label for="editDescription">Description</label>
+                        <textarea id="editDescription" name="description" maxlength="1000" rows="3"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="editPriority">Priority</label>
+                        <select id="editPriority" name="priority">
+                            <option value="low">Low</option>
+                            <option value="medium">Medium</option>
+                            <option value="high">High</option>
+                            <option value="urgent">Urgent</option>
+                        </select>
+                    </div>
+                    <div class="modal-buttons">
+                        <button type="submit" class="btn btn-primary">Save Changes</button>
+                        <button type="button" class="btn btn-secondary" id="cancelEdit">Cancel</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="/static/app.js"></script>
+</body>
+</html>
